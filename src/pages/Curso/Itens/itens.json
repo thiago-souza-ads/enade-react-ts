@@ -1,0 +1,187 @@
+[
+  {
+    "titulo": "Paisagismo",
+    "descricao": "Curso de graduação em Paisagismo.",
+    "foto": "/assets/cursos/paisagismo.png",
+    "duracao": 8,
+    "periodo": "Diurno",
+    "mensalidade": 900.0,
+    "id": 13,
+    "categoria": {
+      "id": 3,
+      "nome": "Urbanismo",
+      "value": "urbanismo"
+    }
+  },
+  {
+    "titulo": "Engenharia de Software",
+    "descricao": "Curso de ... Engenharia de Software.",
+    "foto": "/assets/cursos/engenharia_software.png",
+    "duracao": 5,
+    "periodo": "Noturno",
+    "mensalidade": 800.0,
+    "id": 3,
+    "categoria": {
+      "id": 1,
+      "nome": "Tecnologia",
+      "value": "tecnologia"
+    }
+  },
+  {
+    "titulo": "Administração Pública",
+    "descricao": "Curso de graduação em Administração Pública.",
+    "foto": "/assets/cursos/administracao_publica.png",
+    "duracao": 8,
+    "periodo": "Noturno",
+    "mensalidade": 700.0,
+    "id": 7,
+    "categoria": {
+      "id": 2,
+      "nome": "Administração",
+      "value": "administracao"
+    }
+  },
+  {
+    "titulo": "Engenharia de Redes",
+    "descricao": "Curso de ... Engenharia de Redes.",
+    "foto": "/assets/cursos/engenharia_redes.png",
+    "duracao": 8,
+    "periodo": "Noturno",
+    "mensalidade": 900.0,
+    "id": 4,
+    "categoria": {
+      "id": 1,
+      "nome": "Tecnologia",
+      "value": "tecnologia"
+    }
+  },
+  {
+    "titulo": "Administração de Empresas",
+    "descricao": "Curso de graduação em Administração de Empresas.",
+    "foto": "/assets/cursos/adm.png",
+    "duracao": 8,
+    "periodo": "Diurno",
+    "mensalidade": 800.0,
+    "id": 6,
+    "categoria": {
+      "id": 2,
+      "nome": "Administração",
+      "value": "administracao"
+    }
+  },
+
+
+  {
+    "titulo": "Gestão de Projetos",
+    "descricao": "Curso de ... Gestão de Projetos.",
+    "foto": "/assets/cursos/gerente_projetos.png",
+    "duracao": 8,
+    "periodo": "Noturno",
+    "mensalidade": 1200.0,
+    "id": 5,
+    "categoria": {
+      "id": 1,
+      "nome": "Tecnologia",
+      "value": "tecnologia"
+    }
+  },
+  {
+    "titulo": "Urbanismo",
+    "descricao": "Curso de graduação em Urbanismo.",
+    "foto": "/assets/cursos/urbanismo.png",
+    "duracao": 10,
+    "periodo": "Noturno",
+    "mensalidade": 1000.0,
+    "id": 12,
+    "categoria": {
+      "id": 3,
+      "nome": "Urbanismo",
+      "value": "urbanismo"
+    }
+  },
+
+  {
+    "titulo": "Gestão de Recursos Humanos",
+    "descricao": "Curso de graduação em Gestão de Recursos Humanos.",
+    "foto": "/assets/cursos/gestao_recursos_humanos.png",
+    "duracao": 6,
+    "periodo": "Diurno",
+    "mensalidade": 600.0,
+    "id": 8,
+    "categoria": {
+      "id": 2,
+      "nome": "Administração",
+      "value": "administracao"
+    }
+  },
+  {
+    "titulo": "Ciencia de Dados",
+    "descricao": "Curso de ... Ciencia de Dados.",
+    "foto": "/assets/cursos/ciencia_dados.png",
+    "duracao": 2.5,
+    "periodo": "Diurno",
+    "mensalidade": 800.0,
+    "id": 1,
+    "categoria": {
+      "id": 1,
+      "nome": "Tecnologia",
+      "value": "tecnologia"
+    }
+  },
+  {
+    "titulo": "Gestão Financeira",
+    "descricao": "Curso de graduação em Gestão Financeira.",
+    "foto": "/assets/cursos/gestao_financeira.png",
+    "duracao": 6,
+    "periodo": "Noturno",
+    "mensalidade": 750.0,
+    "id": 9,
+    "categoria": {
+      "id": 2,
+      "nome": "Administração",
+      "value": "administracao"
+    }
+  },
+  {
+    "titulo": "Logística",
+    "descricao": "Curso de graduação em Logística.",
+    "foto": "/assets/cursos/logistica.png",
+    "duracao": 8,
+    "periodo": "Noturno",
+    "mensalidade": 650.0,
+    "id": 10,
+    "categoria": {
+      "id": 2,
+      "nome": "Administração",
+      "value": "administracao"
+    }
+  },
+  {
+    "titulo": "Análise e desenvolvimento de Sistemas",
+    "descricao": "Curso de ... Análise e desenvolvimento de Sistemas.",
+    "foto": "/assets/cursos/ads.png",
+    "duracao": 3.5,
+    "periodo": "Noturno",
+    "mensalidade": 1200.0,
+    "id": 2,
+    "categoria": {
+      "id": 1,
+      "nome": "Tecnologia",
+      "value": "tecnologia"
+    }
+  },
+  {
+    "titulo": "Arquitetura",
+    "descricao": "Curso de graduação em Arquitetura.",
+    "foto": "/assets/cursos/arquitetura.png",
+    "duracao": 10,
+    "periodo": "Diurno",
+    "mensalidade": 1200.0,
+    "id": 11,
+    "categoria": {
+      "id": 3,
+      "nome": "Urbanismo",
+      "value": "urbanismo"
+    }
+  }
+]
