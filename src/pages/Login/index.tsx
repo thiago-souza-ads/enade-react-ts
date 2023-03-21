@@ -1,9 +1,63 @@
 import React, {useState} from 'react';
+import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import ButtonLogin from './Login.module';
 import axios from 'axios';
-import styles from './Login.module.scss';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        backgroundColor: 'rgba(63, 81, 181, 0.89)',
+    },
+    form: {
+        //position:'absolute',
+        zIndex: 999,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: theme.spacing(8),
+        borderRadius: theme.spacing(3),
+        backgroundColor: '#fff',
+        boxShadow: '0px 3px 20px rgba(0, 0, 0, 0.2)',
+    },
+    aluno: {
+        position: 'absolute',
+        bottom: '0.1%',
+        left: '0.1%',
+    },
+    estacio: {
+        position: 'absolute',
+        top: '1%',
+        right: '1%',
+        width: '20vh',
+        maxwidth: '80vh',
+    },
+    letraBranca: {
+        position: 'sticky',
+        color: '#fff',
+        top: '0%'
+    },
+    textField: {
+        marginBottom: theme.spacing(1),
+        width: '100%',
+    },
+    error_message: {
+        marginTop: '10px',
+        color: 'red',
+        fontWeight: 'bold',
+    },
+    button: {
+        marginTop: theme.spacing(3)
+    }
+}));
 
 export default function Login() {
+    const classes = useStyles();
     const [login, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState("");
@@ -29,13 +83,13 @@ export default function Login() {
     }
 
     return (
-        <div className={styles.root}>
-            <img className={styles.aluno} src={process.env.PUBLIC_URL + "/assets/estacio/aluno.png"} alt="Aluno"/>
-            <img className={styles.estacio} src={process.env.PUBLIC_URL + "/assets/estacio/estacio.png"} alt="Estacio"/>
-            <h1 className={styles.letraBranca}> Prepara Enade Estácio</h1>
-            <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={classes.root}>
+            <img className={classes.aluno} src={process.env.PUBLIC_URL + "/assets/estacio/aluno.png"} alt="Aluno"/>
+            <img className={classes.estacio} src={process.env.PUBLIC_URL + "/assets/estacio/estacio.png"} alt="Estacio"/>
+            <h1 className={classes.letraBranca}> Prepara Enade Estácio</h1>
+            <form className={classes.form} onSubmit={handleSubmit}>
                 <TextField
-                    className={styles.textField}
+                    className={classes.textField}
                     id="login"
                     label="Login"
                     type="email"
@@ -43,22 +97,21 @@ export default function Login() {
                     onChange={(event) => setEmail(event.target.value)}
                 />
                 <TextField
-                    className={styles.textField}
+                    className={classes.textField}
                     id="password"
                     label="Password"
                     type="password"
                     value={password}
-                    required={true}
                     onChange={(event) => setPassword(event.target.value)}
                 />
-                <button
-                    className={styles.button}
+                <ButtonLogin
+                    className={classes.button}
                     type="submit"
-                    // variant="contained"
+                    variant="contained"
                     color="primary"
                 >
                     Login
-                </button>
+                </ButtonLogin>
                 <div className="error_message">{error}</div>
             </form>
         </div>
