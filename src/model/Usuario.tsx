@@ -1,5 +1,5 @@
 import React from 'react';
-import type Role from "./Role";
+import type Role from './Role';
 
 interface Usuario {
     id: number;

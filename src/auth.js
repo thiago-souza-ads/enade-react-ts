@@ -1,4 +1,4 @@
 export function isAuthenticated() {
-    const token = localStorage.getItem('token');
-    return token !== null;
+	const token = localStorage.getItem('token');
+	return token !== null;
 }
