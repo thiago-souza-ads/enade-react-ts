@@ -1,4 +1,4 @@
-import resultado from './itens.json';
+import resultado from '../../../data/cursos.json';
 import Item from './Item';
 import styles from './Itens.module.scss';
 import {useEffect, useState} from 'react';

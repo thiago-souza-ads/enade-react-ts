@@ -1,5 +1,5 @@
 import styles from './Item.module.scss';
-import curso from '../itens.json';
+import curso from '../../../../data/cursos.json';
 import classNames from 'classnames';
 
 type Props = typeof curso[0];
