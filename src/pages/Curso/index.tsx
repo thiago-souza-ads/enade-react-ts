@@ -12,11 +12,6 @@ export default function Cursos() {
 
 	return (
 		<main>
-			<nav className={styles.menu}>
-				<button>
-                    Sair
-				</button>
-			</nav>
 			<header className={styles.header}>
 				<div className={styles.header__text}>
 					<div className={styles.header__text}>Cursos</div>

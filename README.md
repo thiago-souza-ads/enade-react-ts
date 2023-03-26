@@ -8,3 +8,4 @@
 ### `npm start` Inicia a aplicação
 ### `npm test` Inicia os testes
 ### `npm run build` Inicia no modo interativo
+### `npx eslint ./src --fix` Para fixar sugestões de indentação e aspas
