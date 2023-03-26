@@ -3,7 +3,6 @@ import Inicio from './pages/Inicio';
 import Cursos from './pages/Curso';
 import Menu from './components/menu/menu';
 import Login from './pages/Login';
-import {isAuthenticated, getUser} from './auth';
 import SideBar from './components/sideBar/sideBax';
 import Usuario from './model/Usuario';
 
