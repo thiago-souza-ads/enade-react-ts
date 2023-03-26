@@ -1,4 +1,4 @@
-export default function Dicas(){
+export default function Dica(){
 	return (
 		<div>
 			<h3>Esta é a tela de Dicas</h3>

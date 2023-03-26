@@ -5,7 +5,7 @@ import Ordenador from './Ordenador';
 import Itens from './Itens';
 import {useState} from 'react';
 
-export default function Cursos() {
+export default function Curso() {
 	const [busca, setBusca] = useState('');
 	const [filtro, setFiltro] = useState<number | null>(null);
 	const [ordenador, setOrdenador] = useState('');

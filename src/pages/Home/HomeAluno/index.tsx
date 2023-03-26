@@ -2,7 +2,6 @@ import React from 'react';
 import './HomeAluno.module.scss';
 
 export default function HomeAluno() {
-	const user = localStorage.getItem('user');
 	return (
 		<div className="home_container">
 			<div className="home-user-panel">
@@ -12,8 +11,8 @@ export default function HomeAluno() {
 						alt="User Photo"/>
 				</div>
 				<div className="home-user-info">
-					<h3>{user.nome}</h3>
-					<p>{user.roles[0].nome}</p>
+					<h3>Nome</h3>
+					<p>Permissão</p>
 				</div>
 			</div>
 			<div className="home-menu-panel">
