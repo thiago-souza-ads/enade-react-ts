@@ -1,29 +1,30 @@
 import styles from './Menu.module.scss';
+import {Link} from 'react-router-dom';
 
 export default function Menu() {
 	const rotas = [{
 		label: 'Aulas',
-		to:'/aulas'
+		to:'/inicio'
 	}, {
 		label: 'Cursos',
 		to:'/cursos'
 	}, {
 		label: 'Mapa 2023',
-		to:'/mapa'
+		to:'/inicio'
 	}, {
 		label: 'Dicas',
-		to:'/'
+		to:'/cursos'
 	}, {
 		label: 'Sobre',
-		to:'/sobre'
+		to:'/inicio'
 	}];
 	return (
 		<nav className={styles.menu}>
 			<ul className={styles.menu__list}>
 				{rotas.map( (rota, index)=>
-					<a key={index} href={rota.to} className={styles.menu__list}>
+					<Link key={index} to={rota.to} className={styles.menu__list}>
 						{rota.label}
-					</a>
+					</Link>
 				)}
 			</ul>
 		</nav>
