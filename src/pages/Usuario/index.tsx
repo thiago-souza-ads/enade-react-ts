@@ -1,4 +1,4 @@
-export default function Usuario(){
+export default function Usuarios(){
 	return (
 		<div>
 			<h3>Esta é a tela de Usuarios</h3>

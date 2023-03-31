@@ -1,8 +1,4 @@
-export function isAuthenticated() {
-	const token = localStorage.getItem('token');
-	return token !== null;
-}
-export function getUser() {
-	const user = localStorage.getItem('user');
-	return user;
-}
+const TOKEN_KEY = 'token';
+
+export const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null;
+export const getToken = () => localStorage.getItem(TOKEN_KEY);
