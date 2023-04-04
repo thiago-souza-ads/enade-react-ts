@@ -3,6 +3,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import ButtonLogin from './Login.module';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -61,6 +62,7 @@ export default function Login() {
 	const [login, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
+	const navigate = useNavigate();
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -70,7 +72,8 @@ export default function Login() {
 				const user = JSON.stringify(response.data);
 				localStorage.setItem('user', user);
 				localStorage.setItem('token', 'tokenFake');
-
+				const role = response.data.roles[0].nome;
+				navigate('/home-coordenador');
 			})
 			.catch((error) => {
 				console.log(error);

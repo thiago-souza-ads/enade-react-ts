@@ -1,5 +1,5 @@
-import {Route, Routes} from 'react-router-dom';
-import {useState} from 'react';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
 import Menu from './components/menu/menu';
 import Login from './pages/Login';
 import Inicio from './pages/Inicio';
@@ -25,80 +25,96 @@ import Relatorio from './pages/Relatorio';
 import Usuarios from './pages/Usuario';
 import Unidade from './pages/Unidade';
 import SideBar from './components/sideBar/sideBax';
-import api from './services/api';
+import axios from 'axios';
 
 export default function AppRouter() {
+
 	const [error, setError] = useState(false);
 	const token = localStorage.getItem('token');
 	const [userProps, setUser] = useState(null);
 	const [roleProps, setRole] = useState('');
-	api.post('/login/validar-token', {token: token})
-		.then(response => {
-			const userJSON = JSON.stringify(response.data);
-			const userProps = response.data;
-			const role = response.data.roles[0].nome;
-			setRole(role);
-			setUser(userProps);
-			localStorage.setItem('token', response.data.token);
-			localStorage.setItem('user', userJSON);
-		})
-		.catch((error) => {
-			setError(error);
-		});
+	useEffect(() => {
+		handleInit;
+	});
+
+	const handleInit = (event: React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		axios.post('http://localhost:8080/login/validar-token', {token: token})
+			.then(response => {
+				const userJSON = JSON.stringify(response.data);
+				const userProps = response.data;
+				const role = response.data.roles[0].nome;
+				setRole(role);
+				setUser(userProps);
+				localStorage.setItem('token', response.data.token);
+				localStorage.setItem('user', userJSON);
+			})
+			.catch((error) => {
+				console.log(error.message);
+				if (error.response && error.response.status === 400) {
+					setError(true);
+				} else {
+					setError(true);
+				}
+			});
+	};
 
 	return (
-		<>
-			{error ? (
-				<Route path='/login' element={<Login />} />
-			) : (
-				<>
-					<Menu />
-					{userProps ? (
-						<SideBar user={userProps}/>
-					) : null}
-					<Routes>
-						{roleProps === 'Aluno' && (
-							<>
-								<Route path='/' element={<HomeAluno />} />
-								<Route path='/home-aluno' element={<HomeAluno />} />
-								<Route path='/enade' element={<Enade />} />
-								<Route path='/dica' element={<Dica />} />
-								<Route path='/calendario' element={<Calendario />} />
-								<Route path='/perfil' element={<Perfil />} />
-								<Route path='/instituicao' element={<Instituicao />} />
-							</>
-						)}
-						{roleProps === 'Professor' && (
-							<>
-								<Route path='/' element={<HomeProfessor />} />
-								<Route path='/perfil' element={<Perfil />} />
-								<Route path='/home-professor' element={<HomeProfessor />} />
-							</>
-						)}
-						{roleProps === 'Coordenador' && (
-							<>
-								<Route path='/unidade' element={<Unidade />} />
-								<Route path='/questionario' element={<Questionario />} />
-								<Route path='/perfil' element={<Perfil />} />
-								<Route path='/usuario' element={<Usuarios />} />
-								<Route path='/' element={<Inicio />} />
-								<Route path='/home-coordenador' element={<HomeCoordenador />} />
-								<Route path='/exame' element={<Exame />} />
-								<Route path='/professor' element={<Professor />} />
-								<Route path='/alunos' element={<Aluno />} />
-								<Route path='/coordenador' element={<Coordenador />} />
-								<Route path='/midia' element={<Midia />} />
-								<Route path='/disciplina' element={<Disciplina />} />
-								<Route path='/curso' element={<Curso />} />
-								<Route path='/etapa' element={<Etapa />} />
-								<Route path='/evidencia' element={<Evidencia />} />
-								<Route path='/relatorio' element={<Relatorio />} />
-							</>
-						)}
-						<Route path='/login' element={<Login />} />
-					</Routes>
-				</>
-			)}
-		</>
+		<main>
+			<Router>
+				<Routes>
+					{error || userProps === null ? (
+						<Route path='/' element={<Login/>}/>
+					) : (
+						<>
+							<Menu/>
+							{userProps ? (
+								<SideBar user={userProps}/>
+							) : null}
+							{roleProps === 'Aluno' && (
+								<>
+									<Route path='/' element={<HomeAluno/>}/>
+									<Route path='/home-aluno' element={<HomeAluno/>}/>
+									<Route path='/enade' element={<Enade/>}/>
+									<Route path='/dica' element={<Dica/>}/>
+									<Route path='/calendario' element={<Calendario/>}/>
+									<Route path='/perfil' element={<Perfil/>}/>
+									<Route path='/instituicao' element={<Instituicao/>}/>
+								</>
+							)}
+							{roleProps === 'Professor' && (
+								<>
+									<Route path='/' element={<HomeProfessor/>}/>
+									<Route path='/perfil' element={<Perfil/>}/>
+									<Route path='/home-professor' element={<HomeProfessor/>}/>
+								</>
+							)}
+							{roleProps === 'Coordenador' || roleProps === 'Administrador' && (
+								<>
+									<Route path='/' element={<Inicio/>}/>
+									<Route path='/unidade' element={<Unidade/>}/>
+									<Route path='/questionario' element={<Questionario/>}/>
+									<Route path='/perfil' element={<Perfil/>}/>
+									<Route path='/usuario' element={<Usuarios/>}/>
+									<Route path='/home-coordenador' element={<HomeCoordenador/>}/>
+									<Route path='/exame' element={<Exame/>}/>
+									<Route path='/professor' element={<Professor/>}/>
+									<Route path='/alunos' element={<Aluno/>}/>
+									<Route path='/coordenador' element={<Coordenador/>}/>
+									<Route path='/midia' element={<Midia/>}/>
+									<Route path='/disciplina' element={<Disciplina/>}/>
+									<Route path='/curso' element={<Curso/>}/>
+									<Route path='/etapa' element={<Etapa/>}/>
+									<Route path='/evidencia' element={<Evidencia/>}/>
+									<Route path='/relatorio' element={<Relatorio/>}/>
+								</>
+							)}
+						</>
+					)}
+				</Routes>
+
+			</Router>
+		</main>
+
 	);
 }
