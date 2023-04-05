@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import ButtonLogin from './Login.module';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+import usuario from '../../model/Usuario';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -73,7 +74,15 @@ export default function Login() {
 				localStorage.setItem('user', user);
 				localStorage.setItem('token', 'tokenFake');
 				const role = response.data.roles[0].nome;
-				navigate('/home-coordenador');
+				if(role === 'Aluno'){
+					navigate('/home-aluno');
+				} else if(role === 'Coordenador') {
+					navigate('/home-coordenador');
+				} else if (role === 'Professor') {
+					navigate('/home-professor');
+				} else if (role === 'Administrador') {
+					navigate('/home-administrador', {... response.data});
+				}
 			})
 			.catch((error) => {
 				console.log(error);

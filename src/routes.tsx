@@ -26,6 +26,7 @@ import Usuarios from './pages/Usuario';
 import Unidade from './pages/Unidade';
 import SideBar from './components/sideBar/sideBax';
 import axios from 'axios';
+import HomeAdministrador from './pages/Home/HomeAdministrador';
 
 export default function AppRouter() {
 
@@ -64,7 +65,13 @@ export default function AppRouter() {
 			<Router>
 				<Routes>
 					{error || userProps === null ? (
-						<Route path='/' element={<Login/>}/>
+						<>
+							<Route path='/' element={<Login/>}/>
+							<Route path='/home-coordenador' element={<HomeCoordenador/>}/>
+							<Route path='/home-aluno' element={<HomeAluno/>}/>
+							<Route path='/home-professor' element={<HomeProfessor/>}/>
+							<Route path='/home-administrador' element={<HomeAdministrador/>}/>
+						</>
 					) : (
 						<>
 							<Menu/>
@@ -74,7 +81,7 @@ export default function AppRouter() {
 							{roleProps === 'Aluno' && (
 								<>
 									<Route path='/' element={<HomeAluno/>}/>
-									<Route path='/home-aluno' element={<HomeAluno/>}/>
+
 									<Route path='/enade' element={<Enade/>}/>
 									<Route path='/dica' element={<Dica/>}/>
 									<Route path='/calendario' element={<Calendario/>}/>
@@ -86,7 +93,7 @@ export default function AppRouter() {
 								<>
 									<Route path='/' element={<HomeProfessor/>}/>
 									<Route path='/perfil' element={<Perfil/>}/>
-									<Route path='/home-professor' element={<HomeProfessor/>}/>
+
 								</>
 							)}
 							{roleProps === 'Coordenador' || roleProps === 'Administrador' && (
@@ -96,7 +103,7 @@ export default function AppRouter() {
 									<Route path='/questionario' element={<Questionario/>}/>
 									<Route path='/perfil' element={<Perfil/>}/>
 									<Route path='/usuario' element={<Usuarios/>}/>
-									<Route path='/home-coordenador' element={<HomeCoordenador/>}/>
+
 									<Route path='/exame' element={<Exame/>}/>
 									<Route path='/professor' element={<Professor/>}/>
 									<Route path='/alunos' element={<Aluno/>}/>
