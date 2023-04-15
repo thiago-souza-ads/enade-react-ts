@@ -27,6 +27,7 @@ import Unidade from './pages/Unidade';
 import SideBar from './components/sideBar/sideBax';
 import axios from 'axios';
 import HomeAdministrador from './pages/Home/HomeAdministrador';
+import EditAvatar from './pages/EditAvatar';
 
 export default function AppRouter() {
 
@@ -71,6 +72,7 @@ export default function AppRouter() {
 							<Route path='/home-aluno' element={<HomeAluno/>}/>
 							<Route path='/home-professor' element={<HomeProfessor/>}/>
 							<Route path='/home-administrador' element={<HomeAdministrador/>}/>
+							<Route path='/editar-avatar' element={<EditAvatar/>}/>
 						</>
 					) : (
 						<>

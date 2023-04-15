@@ -4,7 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import ButtonLogin from './Login.module';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
-import usuario from '../../model/Usuario';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
