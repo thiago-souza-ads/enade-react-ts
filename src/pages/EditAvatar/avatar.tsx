@@ -1,4 +1,4 @@
-type AvatarConfig = {
+type AvatarOptions = {
 	topType: string[],
 	accessoriesType: string[],
 	hatColor: string[],
@@ -14,7 +14,7 @@ type AvatarConfig = {
 	skinColor: string[],
 };
 
-const configs : AvatarConfig = {
+const configs : AvatarOptions = {
 	topType: [
 		'NoHair',
 		'Eyepatch',
@@ -193,14 +193,12 @@ const configs : AvatarConfig = {
 	]
 };
 
-// const configsKeys = Object.keys(configs);
-
-export function generateRandomAvatarOptions(): AvatarConfig {
+export function generateRandomAvatarOptions(): AvatarOptions {
 	const options: any = null;
 	const keys = Object.keys(configs);
 	keys.forEach(key => {
-		const configArray = configs[key as keyof AvatarConfig];
-		options[key as keyof AvatarConfig] = configArray[Math.floor(Math.random() * configArray.length)];
+		const configArray = configs[key as keyof AvatarOptions];
+		options[key as keyof AvatarOptions] = configArray[Math.floor(Math.random() * configArray.length)];
 	});
 
 	return options;

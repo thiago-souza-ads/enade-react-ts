@@ -1,5 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Avatar from 'avataaars';
+import {generateRandomAvatarOptions} from './avatar';
+import {useNavigate} from "react-router-dom";
+import axios from "axios/index";
 
 const topTypes: string[] = [
 	'NoHair',
@@ -225,9 +228,22 @@ export default function EditAvatar() {
 		}));
 	}
 
+	function handleSaveAvatar() {
+		const parsedUser = JSON.parse(localStorage.getItem('user') ?? '');
+		parsedUser.avatar = initialAvatarOptions;
+		axios.post('http://localhost:8080/usuarios/atualizar-avatar', {avatar: initialAvatarOptions})
+			.then(response => {
+				console.log("Sucesso");
+			})
+			.catch((error) => {
+				console.log(error.message);
+			});
+	}
+
 	return (
 		<div>
 			<Avatar style={{ width: '250px', height: '250px' }} {...avatarOptions} />
+			<button onClick={() => handleSaveAvatar() }>Salvar avatar</button>
 			<div style={{
 				display: 'inline-grid',
 				justifyContent: 'center',
@@ -401,7 +417,7 @@ export default function EditAvatar() {
 					))}
 				</select>
 				<div style={{ display: 'flex' }}>
-					<h5> AAAAA:</h5>
+					<h5> Boca :</h5>
 				</div>
 				<select
 					value={avatarOptions.mouthType}
@@ -416,7 +432,7 @@ export default function EditAvatar() {
 					))}
 				</select>
 				<div style={{ display: 'flex' }}>
-					<h5> AAAAA:</h5>
+					<h5> Tom da pele :</h5>
 				</div>
 				<select
 					value={avatarOptions.skinColor}
