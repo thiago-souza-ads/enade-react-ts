@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Avatar from 'avataaars';
-import {generateRandomAvatarOptions} from './avatar';
-import {useNavigate} from "react-router-dom";
-import axios from "axios/index";
+import axios from 'axios';
+import styles from './EditAvatar.module.scss';
 
 const topTypes: string[] = [
 	'NoHair',
@@ -200,20 +199,20 @@ export default function EditAvatar() {
 	};
 
 	const initialAvatarOptions: AvatarOptions = {
-		accessoriesType: 'Round',
 		avatarStyle: 'Circle',
-		clotheColor: 'PastelGreen',
-		clotheType: 'ShirtCrewNeck',
-		eyeType: 'Side',
-		eyebrowType: 'UpDown',
-		facialHairColor: 'Auburn',
-		facialHairType: 'MoustacheMagnum',
+		topType: 'NoHair',
+		accessoriesType: 'Blank',
+		hairColor: 'Auburn',
+		facialHairType: 'Blank',
+		facialHairColor: 'Black',
+		clotheType: 'GraphicShirt',
+		clotheColor: 'White',
 		graphicType: 'Hola',
-		hairColor: 'PastelPink',
-		hatColor: 'Gray02',
+		eyeType: 'WinkWacky',
+		eyebrowType: 'Defalt',
+		hatColor: 'Blank',
 		mouthType: 'ScreamOpen',
 		skinColor: 'Pale',
-		topType: 'Eyepatch',
 	};
 
 
@@ -228,12 +227,15 @@ export default function EditAvatar() {
 		}));
 	}
 
-	function handleSaveAvatar() {
+	function handleSaveAvatar(event: React.FormEvent<HTMLButtonElement>) {
+		event.preventDefault();
 		const parsedUser = JSON.parse(localStorage.getItem('user') ?? '');
+		const id = parsedUser.avatar.id;
 		parsedUser.avatar = initialAvatarOptions;
-		axios.post('http://localhost:8080/usuarios/atualizar-avatar', {avatar: initialAvatarOptions})
+		parsedUser.avatar.id = id;
+		axios.post('http://localhost:8080/usuarios/atualizar-avatar', {user: parsedUser})
 			.then(response => {
-				console.log("Sucesso");
+				console.log(response);
 			})
 			.catch((error) => {
 				console.log(error.message);
@@ -241,211 +243,228 @@ export default function EditAvatar() {
 	}
 
 	return (
-		<div>
-			<Avatar style={{ width: '250px', height: '250px' }} {...avatarOptions} />
-			<button onClick={() => handleSaveAvatar() }>Salvar avatar</button>
-			<div style={{
-				display: 'inline-grid',
-				justifyContent: 'center',
-				alignItems: 'center',
-				height: '100vh',
-			}}>
-				<h1>Personalize seu avatar:</h1>
-				<div style={{ display: 'flex' }}>
-					<h5> Tipos de cabelo e acessórios:</h5>
-				</div>
-				<select
-					value={avatarOptions.topType}
-					onChange={(event) =>
-						handleOptionChange('topType', event.target.value)
-					}
-				>
-					{topTypes.map((option) => (
-						<option key={option} value={option}>
-							{option}
-						</option>
-					))}
-				</select>
-				<div style={{ display: 'flex' }}>
-					<h5> Óculos:</h5>
-				</div>
-				<select
-					value={avatarOptions.accessoriesType}
-					onChange={(event) =>
-						handleOptionChange('accessoriesType', event.target.value)
-					}
-				>
-					{accessoriesTypes.map((option) => (
-						<option key={option} value={option}>
-							{option}
-						</option>
-					))}
-				</select>
-				<div style={{ display: 'flex' }}>
-					<h5> Não sei:</h5>
-				</div>
-				<select
-					value={avatarOptions.hatColor}
-					onChange={(event) =>
-						handleOptionChange('hatColor', event.target.value)
-					}
-				>
-					{hatColors.map((option) => (
-						<option key={option} value={option}>
-							{option}
-						</option>
-					))}
-				</select>
-				<div style={{ display: 'flex' }}>
-					<h5> Cor do cabelo:</h5>
-				</div>
-				<select
-					value={avatarOptions.hairColor}
-					onChange={(event) =>
-						handleOptionChange('hairColor', event.target.value)
-					}
-				>
-					{hairColors.map((option) => (
-						<option key={option} value={option}>
-							{option}
-						</option>
-					))}
-				</select>
-				<div style={{ display: 'flex' }}>
-					<h5> Tipo de barba:</h5>
-				</div>
-				<select
-					value={avatarOptions.facialHairType}
-					onChange={(event) =>
-						handleOptionChange('facialHairType', event.target.value)
-					}
-				>
-					{facialHairTypes.map((option) => (
-						<option key={option} value={option}>
-							{option}
-						</option>
-					))}
-				</select>
-				<div style={{ display: 'flex' }}>
-					<h5> Cor da barba:</h5>
-				</div>
-				<select
-					value={avatarOptions.facialHairColor}
-					onChange={(event) =>
-						handleOptionChange('facialHairColor', event.target.value)
-					}
-				>
-					{facialHairColors.map((option) => (
-						<option key={option} value={option}>
-							{option}
-						</option>
-					))}
-				</select>
-				<div style={{ display: 'flex' }}>
-					<h5> Tipo de camiseta:</h5>
-				</div>
-				<select
-					value={avatarOptions.clotheType}
-					onChange={(event) =>
-						handleOptionChange('clotheType', event.target.value)
-					}
-				>
-					{clotheTypes.map((option) => (
-						<option key={option} value={option}>
-							{option}
-						</option>
-					))}
-				</select>
-				<div style={{ display: 'flex' }}>
-					<h5> Cor da camiseta:</h5>
-				</div>
-				<select
-					value={avatarOptions.clotheColor}
-					onChange={(event) =>
-						handleOptionChange('clotheColor', event.target.value)
-					}
-				>
-					{clotheColors.map((option) => (
-						<option key={option} value={option}>
-							{option}
-						</option>
-					))}
-				</select>
-				<div style={{ display: 'flex' }}>
-					<h5> AAAAA:</h5>
-				</div>
-				<select
-					value={avatarOptions.graphicType}
-					onChange={(event) =>
-						handleOptionChange('graphicType', event.target.value)
-					}
-				>
-					{graphicTypes.map((option) => (
-						<option key={option} value={option}>
-							{option}
-						</option>
-					))}
-				</select>
-				<div style={{ display: 'flex' }}>
-					<h5> Olhar:</h5>
-				</div>
-				<select
-					value={avatarOptions.eyeType}
-					onChange={(event) =>
-						handleOptionChange('eyeType', event.target.value)
-					}
-				>
-					{eyeTypes.map((option) => (
-						<option key={option} value={option}>
-							{option}
-						</option>
-					))}
-				</select>
-				<div style={{ display: 'flex' }}>
-					<h5> Sombrancelha:</h5>
-				</div>
-				<select
-					value={avatarOptions.eyebrowType}
-					onChange={(event) =>
-						handleOptionChange('eyebrowType', event.target.value)
-					}
-				>
-					{eyebrowTypes.map((option) => (
-						<option key={option} value={option}>
-							{option}
-						</option>
-					))}
-				</select>
-				<div style={{ display: 'flex' }}>
-					<h5> Boca :</h5>
-				</div>
-				<select
-					value={avatarOptions.mouthType}
-					onChange={(event) =>
-						handleOptionChange('mouthType', event.target.value)
-					}
-				>
-					{mouthTypes.map((option) => (
-						<option key={option} value={option}>
-							{option}
-						</option>
-					))}
-				</select>
+		<div className={styles.tela}>
+			<Avatar className={styles.avatar}  {...avatarOptions} />
+			<div>
+				<h1 className={styles.tela__titulo}>Personalize seu avatar:</h1>
+
 				<div style={{ display: 'flex' }}>
 					<h5> Tom da pele :</h5>
+					<select className={styles.tela__selection}
+						value={avatarOptions.skinColor}
+						onChange={(event) =>
+							handleOptionChange('skinColor', event.target.value)
+						}
+					>
+						{skinColors.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
 				</div>
-				<select
-					value={avatarOptions.skinColor}
-					onChange={(event) =>
-						handleOptionChange('skinColor', event.target.value)
-					}
-				>
-					{skinColors.map((option) => (
-						<option key={option} value={option}>
-							{option}
-						</option>
-					))}
-				</select>
+
+				<div style={{ display: 'flex' }}>
+					<h5> Tipos de cabelo e acessórios:</h5>
+					<select className={styles.tela__selection}
+						value={avatarOptions.topType}
+						onChange={(event) =>
+							handleOptionChange('topType', event.target.value)
+						}
+					>
+						{topTypes.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+
+				<div style={{ display: 'flex' }}>
+					<h5> Óculos:</h5>
+					<select className={styles.tela__selection}
+						value={avatarOptions.accessoriesType}
+						onChange={(event) =>
+							handleOptionChange('accessoriesType', event.target.value)
+						}
+					>
+						{accessoriesTypes.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+
+
+				<div style={{ display: 'flex' }}>
+					<h5> Cor do chapéu:</h5>
+					<select className={styles.tela__selection}
+						value={avatarOptions.hatColor}
+						onChange={(event) =>
+							handleOptionChange('hatColor', event.target.value)
+						}
+					>
+						{hatColors.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+
+
+
+				<div style={{ display: 'flex' }}>
+					<h5> Cor do cabelo:</h5>
+					<select className={styles.tela__selection}
+						value={avatarOptions.hairColor}
+						onChange={(event) =>
+							handleOptionChange('hairColor', event.target.value)
+						}
+					>
+						{hairColors.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+
+				<div style={{ display: 'flex' }}>
+					<h5> Tipo de barba:</h5>
+					<select className={styles.tela__selection}
+						value={avatarOptions.facialHairType}
+						onChange={(event) =>
+							handleOptionChange('facialHairType', event.target.value)
+						}
+					>
+						{facialHairTypes.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+
+				<div style={{ display: 'flex' }}>
+					<h5> Cor da barba:</h5>
+					<select className={styles.tela__selection} disabled={ avatarOptions.facialHairType == 'Blank' }
+						value={avatarOptions.facialHairColor}
+						onChange={(event) =>
+							handleOptionChange('facialHairColor', event.target.value)
+						}
+					>
+						{facialHairColors.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+
+
+
+				<div style={{ display: 'flex' }}>
+					<h5> Tipo de camiseta:</h5>
+					<select className={styles.tela__selection}
+						value={avatarOptions.clotheType}
+						onChange={(event) =>
+							handleOptionChange('clotheType', event.target.value)
+						}
+					>
+						{clotheTypes.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+
+				<div style={{ display: 'flex' }}>
+					<h5> Cor da camiseta:</h5>
+					<select className={styles.tela__selection}
+						value={avatarOptions.clotheColor}
+						onChange={(event) =>
+							handleOptionChange('clotheColor', event.target.value)
+						}
+					>
+						{clotheColors.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+
+				<div style={{ display: 'flex' }}>
+					<h5> Estampa camiseta:</h5>
+					<select className={styles.tela__selection} disabled={ avatarOptions.clotheType != 'GraphicShirt' }
+						value={avatarOptions.graphicType}
+						onChange={(event) =>
+							handleOptionChange('graphicType', event.target.value)
+						}
+					>
+						{graphicTypes.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+
+
+				<div style={{ display: 'flex' }}>
+					<h5> Olhar:</h5>
+					<select className={styles.tela__selection}
+						value={avatarOptions.eyeType}
+						onChange={(event) =>
+							handleOptionChange('eyeType', event.target.value)
+						}
+					>
+						{eyeTypes.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+
+				<div style={{ display: 'flex' }}>
+					<h5> Sombrancelha:</h5>
+					<select className={styles.tela__selection}
+						value={avatarOptions.eyebrowType}
+						onChange={(event) =>
+							handleOptionChange('eyebrowType', event.target.value)
+						}
+					>
+						{eyebrowTypes.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+
+				<div style={{ display: 'flex' }}>
+					<h5> Boca :</h5>
+					<select className={styles.tela__selection}
+						value={avatarOptions.mouthType}
+						onChange={(event) =>
+							handleOptionChange('mouthType', event.target.value)
+						}
+					>
+						{mouthTypes.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+
+			</div>
+			<div>
+				<button onClick={ handleSaveAvatar }>Salvar avatar</button>
 			</div>
 		</div>
 	);
