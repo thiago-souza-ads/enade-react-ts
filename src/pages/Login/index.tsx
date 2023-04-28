@@ -43,10 +43,6 @@ export default function Login() {
 			});
 	};
 
-	const Login = () =>{
-		console.log(email, password);
-	};
-
 	return (
 		<Styles.Main>
 			<Styles.Login>
