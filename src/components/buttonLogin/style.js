@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Button = styled.button`
   background: #53b36c;
@@ -13,7 +13,7 @@ export const Button = styled.button`
   transition: 0.4s;
 
   &:hover {
-    background: #347345;
+    cursor: pointer;
     scale: 1.1;
   }
 `;
