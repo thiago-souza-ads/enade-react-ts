@@ -1,12 +1,13 @@
 import React from "react";
 import * as Styles from "./style";
 import Logo from "../../assets/estacioBlackBg.png";
+import DrawerSlider from "./Drawer";
 
 export default function NavBarHomeAluno() {
   return (
     <Styles.Main>
       <Styles.NavBarLeft>
-        <i className="ph-light ph-list"></i>
+        <DrawerSlider />
       </Styles.NavBarLeft>
       <Styles.NavBarCenter>
         <i className="ph-fill ph-house"></i>
