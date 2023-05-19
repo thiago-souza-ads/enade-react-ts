@@ -7,16 +7,12 @@ export const Main = styled.div`
   justify-content: center;
   align-items: center;
 
-  /* @media (max-width: 767px) {
-    & {
-     
-      display: flex;
-      width: 100vw;
-      height: 100vh;
-      align-items: center;
-      justify-content: center;
-    }
-  } */
+  @media (max-width: 767px) {
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const NavBarCenter = styled.div`
@@ -25,6 +21,10 @@ export const NavBarCenter = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 
   i {
     display: flex;
@@ -35,6 +35,24 @@ export const NavBarCenter = styled.div`
     height: 1.5rem;
     color: #707070;
     font-size: 18px;
+  }
+
+  p {
+    color: #707070;
+  }
+
+  .Stage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  img {
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
 `;
 

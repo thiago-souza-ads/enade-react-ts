@@ -11,6 +11,11 @@ export const Main = styled.div`
   border: 1px solid black;
   border-radius: 0.5rem;
   padding: 1rem;
+
+  @media (max-width: 767px) {
+    width: 90%;
+    min-height: 200px;
+  }
 `;
 
 export const Text = styled.text`
