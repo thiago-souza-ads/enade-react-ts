@@ -8,6 +8,7 @@ export const Main = styled.div`
     border-radius: 0.2rem;
     padding: 0.5rem;
     border-style: none;
+    background: #cccccccc;
 
     @media (max-width: 767px) {
     & {
