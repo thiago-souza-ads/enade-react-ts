@@ -1,11 +1,26 @@
+import * as Styles from './style';
+import Board from 'components/coordinatorAndProfessor/board';
+import Menu from 'components/coordinatorAndProfessor/topMenuBar';
+import ProfessorIcon from '../../../assets/profCoord/chalkboard-user-solid.svg';
+import StudentIcon from '../../../assets/profCoord/graduation-cap-solid.svg';
+import QuestionIcon from '../../../assets/profCoord/question.svg';
+
+const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et imperdiet nisl. Cras sed quam vulputate, laoreet dui gravida, interdum elit. Vivamus mattis egestas tortor id varius. Donec scelerisque sapien eu dolor consectetur sollicitudin. Vestibulum nec auctor odio. Donec in accumsan massa. Donec sit amet elit justo. Pellentesque tincidunt enim id nisi varius, non semper dolor placerat.';
 export default function HomeCoordenador(){
 	return (
-		<div>
-			<h3>Esta é a tela de Home Coordenador</h3>
-			<h3></h3>
-			<p>
-                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32.
-			</p>
-		</div>
+		<Styles.Main>
+			<Menu></Menu>
+			<Styles.Container>
+				<Styles.MessageBox>
+					<h1>Bem vindo!</h1>
+				</Styles.MessageBox>
+				<Styles.BoardsBox>
+					<Board iconPath={ProfessorIcon} title='Professores/Coordenadores' text={text}></Board>
+					<Board iconPath={StudentIcon} title='Alunos' text={text}></Board>
+					<Board iconPath={QuestionIcon} title='Questões' text={text}></Board>
+				</Styles.BoardsBox>
+				
+			</Styles.Container>
+		</Styles.Main>
 	);
 }
