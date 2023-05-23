@@ -11,6 +11,12 @@ margin: 5px;
 
 border: 1px solid #D7D7D7;
 border-radius: 2%;
+
+@media (max-width: 767px) {
+    width: 85%;
+    height: 40%;
+    font-size: 15px;
+  }
 `;
 
 export const IconBox = styled.div`
@@ -23,6 +29,10 @@ align-items: center;
 img {
     width: 40%;
 }
+@media (max-width: 767px) {
+    width: 50%;
+    height: 50%;
+  }
 `;
 
 export const Title = styled.div`

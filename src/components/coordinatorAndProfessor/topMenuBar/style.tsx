@@ -9,11 +9,7 @@ justify-content: center;
 align-items: center;
 
 @media (max-width: 767px) {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  align-items: center;
-  justify-content:center;
+  display: none;
 }
 
 `;

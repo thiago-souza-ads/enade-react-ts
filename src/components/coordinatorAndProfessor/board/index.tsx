@@ -1,15 +1,18 @@
 import * as Styles from './style';
 import Button from 'components/button';
+import {useNavigate} from 'react-router-dom';
 
 interface Props {
 	iconPath: string;
 	title: string;
 	text: string;
+	linkPath: string;
 }
 
 export default function Board(props: Props) {
-	const handle = (event: any) => {
-		console.log('teste');
+	const navigate = useNavigate();
+	const handle = (event: any) => {	
+		navigate(props.linkPath);
 	};
 	return(    
 		<Styles.Main>
@@ -22,7 +25,7 @@ export default function Board(props: Props) {
 			<Styles.Text>
 				<p>{props.text}</p>
 			</Styles.Text>
-			<Button onClick={handle} title='teste' />
+			<Button onClick={handle} title='Acessar painel' />
 		</Styles.Main>
 	);
 }

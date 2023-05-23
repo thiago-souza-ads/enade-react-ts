@@ -10,16 +10,16 @@ export default function TopMenuBar() {
 			</Styles.HomeIconBox>
 			<Styles.MenuBox>
 				<Styles.MenuLink>
-				<a href="https://www.w3schools.com/html/html_links.asp">Home</a>
+				<a href='/home-coordenador'>Home</a>
 				</Styles.MenuLink>
 				<Styles.MenuLink>
-				<a href="https://www.w3schools.com/html/html_links.asp">Professores/Coordenadores</a>
+				<a href='/professor'>Professores/Coordenadores</a>
 				</Styles.MenuLink>
 				<Styles.MenuLink>
 				<a href="/alunos">Alunos</a>
 				</Styles.MenuLink>
 				<Styles.MenuLink>
-				<a href="https://www.w3schools.com/html/html_links.asp">Questões</a>
+				<a href='/questionario'>Questões</a>
 				</Styles.MenuLink>				
 			</Styles.MenuBox>
 			<Styles.EstacioLogoBox>

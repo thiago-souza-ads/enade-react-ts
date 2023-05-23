@@ -15,9 +15,9 @@ export default function HomeCoordenador(){
 					<h1>Bem vindo!</h1>
 				</Styles.MessageBox>
 				<Styles.BoardsBox>
-					<Board iconPath={ProfessorIcon} title='Professores/Coordenadores' text={text}></Board>
-					<Board iconPath={StudentIcon} title='Alunos' text={text}></Board>
-					<Board iconPath={QuestionIcon} title='Questões' text={text}></Board>
+					<Board iconPath={ProfessorIcon} title='Professores/Coordenadores' text={text} linkPath='/professor'></Board>
+					<Board iconPath={StudentIcon} title='Alunos' text={text} linkPath='/alunos'></Board>
+					<Board iconPath={QuestionIcon} title='Questões' text={text} linkPath='/questionario'></Board>
 				</Styles.BoardsBox>
 				
 			</Styles.Container>

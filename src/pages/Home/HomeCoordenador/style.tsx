@@ -34,6 +34,13 @@ export const MessageBox = styled.div`
   align-items: center;
 
   color: #707070;
+
+  @media (max-width: 767px) {
+    justify-content: flex-start;
+    padding: 3px;
+    height: 10%;
+    font-size: 12px;
+  }
 `;
 
 export const BoardsBox = styled.div`
@@ -42,5 +49,10 @@ export const BoardsBox = styled.div`
   display: flex;
   justify-content: center;
 
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+    height: 85%;
+  }
 `;
 
