@@ -10,7 +10,7 @@ export const Main = styled.div`
   color: black;
   border: 1px solid black;
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 15px;
 
   @media (max-width: 767px) {
     width: 90%;

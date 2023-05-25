@@ -28,6 +28,11 @@ import SideBar from "./components/sideBar/sideBax";
 import axios from "axios";
 import HomeAdministrador from "./pages/Home/HomeAdministrador";
 import EditAvatar from "./pages/EditAvatar";
+import Etapa3 from "pages/Etapas/Etapa3";
+import Etapa6 from "pages/Etapas/Etapa6";
+import Etapa5 from "pages/Etapas/Etapa5";
+import Etapa4 from "pages/Etapas/Etapa4";
+import Etapa2 from "pages/Etapas/Etapa2";
 
 export default function AppRouter() {
   const [error, setError] = useState(false);
@@ -91,6 +96,11 @@ export default function AppRouter() {
                   <Route path="/perfil" element={<Perfil />} />
                   <Route path="/instituicao" element={<Instituicao />} />
                   <Route path="/etapa1" element={<Etapa1 />} />
+                  <Route path="/etapa2" element={<Etapa2 />} />
+                  <Route path="/etapa3" element={<Etapa3 />} />
+                  <Route path="/etapa4" element={<Etapa4 />} />
+                  <Route path="/etapa5" element={<Etapa5 />} />
+                  <Route path="/etapa6" element={<Etapa6 />} />
                 </>
               )}
               {roleProps === "Professor" && (
@@ -116,6 +126,11 @@ export default function AppRouter() {
                     <Route path="/disciplina" element={<Disciplina />} />
                     <Route path="/curso" element={<Curso />} />
                     <Route path="/etapa1" element={<Etapa1 />} />
+                    <Route path="/etapa2" element={<Etapa2 />} />
+                    <Route path="/etapa3" element={<Etapa3 />} />
+                    <Route path="/etapa4" element={<Etapa4 />} />
+                    <Route path="/etapa5" element={<Etapa5 />} />
+                    <Route path="/etapa6" element={<Etapa6 />} />
                     <Route path="/evidencia" element={<Evidencia />} />
                     <Route path="/relatorio" element={<Relatorio />} />
                   </>
