@@ -23,14 +23,19 @@ export const Main = styled.div`
   }
 `;
 
-export const Video = styled.div`
-  width: 1080px;
-  height: 520px;
-  border: 1px solid black;
-  border-radius: 10px;
+export const Stage = styled.div`
+  border-bottom: 1px solid black;
+`;
 
-  @media (max-width: 767px) {
-    width: 90%;
-    height: 200px;
-  }
+export const Assessment = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+width: 800px;
+height: auto;
+`;
+
+export const Rating = styled.div`
 `;
