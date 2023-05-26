@@ -71,7 +71,9 @@ export default function AppRouter() {
       <Router>
         <Routes>
           {error || userProps === null ? (
-            <>
+            <> 
+              {/* apagar essa merda depois */}
+              <Route path="/etapa2" element={<Etapa2 />} />
               <Route path="/" element={<Login />} />
               <Route path="/home-coordenador" element={<HomeCoordenador />} />
               <Route path="/home-aluno" element={<HomeAluno />} />

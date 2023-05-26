@@ -23,14 +23,73 @@ export const Main = styled.div`
   }
 `;
 
-export const Video = styled.div`
-  width: 1080px;
-  height: 520px;
+export const Stage = styled.div`
+  border-bottom: 1px solid black;
+`;
+
+export const Questions = styled.div`
+  width: 800px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (max-width: 767px) {
+    width: 95%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .answer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  p {
+    cursor: pointer;
+    padding-left: 10px;
+    color: green;
+  }
+`;
+
+export const SelectContainer = styled.div`
+  width: 800px;
+  height: 70px;
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 0.5rem;
+  padding: 20px;
+
+  label {
+    margin-left: 5px;
+  }
 
   @media (max-width: 767px) {
     width: 90%;
-    height: 200px;
+  }
+`;
+
+export const SelectContainer2 = styled.div`
+  width: 400px;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  div {
+    margin: 10px;
+  }
+  label {
+    margin-left: 5px;
+  }
+
+  @media (max-width: 767px) {
+    width: 90%;
   }
 `;
