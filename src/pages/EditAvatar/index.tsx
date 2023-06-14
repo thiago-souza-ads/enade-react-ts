@@ -462,7 +462,7 @@ export default function EditAvatar() {
 
 			</div>
 			<div>
-				<button onClick={ handleSaveAvatar }>Salvar avatar</button>
+				<button onClick={ handleSaveAvatar }>Salvar </button>
 			</div>
 		</div>
 	);
