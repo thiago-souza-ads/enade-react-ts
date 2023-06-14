@@ -7,10 +7,13 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import Avatar from "../../../assets/avatar.svg";
+//import Avatar from 'avataaars';
+import UserAvatar from "components/userAvatar";
 import * as Styles from "./style";
 
 export default function DrawerSlider() {
+  const parsedUser = JSON.parse(localStorage.getItem('user') ?? '');
+
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -63,7 +66,7 @@ export default function DrawerSlider() {
           }}
         >
           <Styles.Person>
-            <img className="Avatar" src={Avatar} alt="Avatar" width="110px" />
+            <UserAvatar  style={{width: '200px'}} className="avatar"></UserAvatar>
             <i className="ph ph-pencil"></i>
           </Styles.Person>
         </ListItem>
@@ -80,7 +83,7 @@ export default function DrawerSlider() {
               justifyContent: "center",
             }}
           >
-            Thiago Souza
+            {parsedUser ? parsedUser.nome : ""}
             <ListItem
               sx={{
                 display: "flex",
@@ -101,7 +104,7 @@ export default function DrawerSlider() {
             justifyContent: "center",
           }}
         >
-          Aluno
+          {parsedUser ? parsedUser.roles[0].nome : ""}
         </ListItemText>
         <ListItemText
           sx={{

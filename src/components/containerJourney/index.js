@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import * as Style from "./style";
 import HomeIcon from "../../assets/HomeJourney.svg";
-import avatar from "../../assets/avatar.svg";
+import UserAvatar from "components/userAvatar";
 import Number1 from "../../assets/number1.svg";
 import Number2 from "../../assets/number2.svg";
 import Number3 from "../../assets/number3.svg";
@@ -17,7 +17,7 @@ export const ContainerJouney = () => {
       <Style.GridMain>
         <Style.GridSquare background="#BBF192">
           <div className="beginJourney">
-            <img src={avatar} alt="Avatar" />
+            <UserAvatar  style={{width: '85px'}} className="avatar"/>
             <img src={HomeIcon} alt="HomeIcon" />
           </div>
         </Style.GridSquare>

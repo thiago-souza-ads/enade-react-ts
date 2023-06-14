@@ -7,7 +7,7 @@ export const Icon = styled.div`
 `;
 
 export const Person = styled.div`
-  .Avatar {
+  .avatar {
     position: relative;
   }
 
