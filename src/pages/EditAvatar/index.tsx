@@ -227,13 +227,11 @@ export default function EditAvatar() {
 		}));
 	}
 
-	function handleSaveAvatar(event: React.FormEvent<HTMLButtonElement>) {
+	async function handleSaveAvatar(event: React.FormEvent<HTMLButtonElement>) {
 		event.preventDefault();
 		const parsedUser = JSON.parse(localStorage.getItem('user') ?? '');
-		const id = parsedUser.avatar.id;
 		parsedUser.avatar = initialAvatarOptions;
-		parsedUser.avatar.id = id;
-		axios.post('http://localhost:8080/usuarios/atualizar-avatar', {user: parsedUser})
+		await axios.post('http://localhost:8080/usuarios/atualizar-avatar', parsedUser)
 			.then(response => {
 				console.log(response);
 			})
@@ -464,7 +462,7 @@ export default function EditAvatar() {
 
 			</div>
 			<div>
-				<button onClick={ handleSaveAvatar }>Salvar avatar</button>
+				<button onClick={ handleSaveAvatar }>Salvar </button>
 			</div>
 		</div>
 	);

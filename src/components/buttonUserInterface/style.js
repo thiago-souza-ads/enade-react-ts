@@ -1,19 +1,19 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Button = styled.button`
-  background: #53b36c;
-  border: none;
+  background: white;
+  border: 1px solid black;
   border-radius: 0.25rem;
-  width: 15rem;
-  height: 2.5rem;
-  color: white;
+  padding: 10px;
+  color: black;
   align-items: center;
   justify-content: space-evenly;
   display: flex;
   transition: 0.4s;
+  box-shadow: 0px 5px 10px #def6fb;
 
   &:hover {
-    background: #347345;
+    cursor: pointer;
     scale: 1.1;
   }
 `;
